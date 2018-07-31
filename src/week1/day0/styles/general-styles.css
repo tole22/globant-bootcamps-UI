@@ -1,0 +1,9 @@
+
+.table-cont table {
+    width: 100%;
+    text-align: center;
+}
+
+.table-cont table, th, td {
+    border: 1px solid black;
+}
