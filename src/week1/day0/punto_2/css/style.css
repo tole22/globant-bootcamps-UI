@@ -1,0 +1,41 @@
+
+* {
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    background-color: aqua;
+    text-align: center;
+}
+footer {
+    background-color: red;
+    text-align: center;
+}
+aside {
+    background-color: antiquewhite;
+}
+
+nav {
+    background-color: antiquewhite;
+}
+
+.header {
+    font-size: 46px;
+}
+.footer {
+    font-size: 10px;
+}
+.content {
+    font-size: 14px;
+}
+.navigation {
+    font-size: 12px;
+}
+.sidebar {
+    font-size: 10px;
+}
+/*class attribute finishes with r*/
+[class$="r"] {
+    background: magenta;
+}
