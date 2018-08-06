@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/general-styles.css">
+    <title>Sign Up!</title>
+
+    <meta name="description" content="Ejercicio de signup"/>
+    <meta name="keywords" content="signup, w3c validation, globant, disney"/>
+    <meta name="author" content="Maximiliano Toledo" />
+
+</head>
+
+<body>
+        <form action="action_page.php" style="border:1px solid #ccc">
+                <div class="container">
+                  <h1>Sign Up</h1>
+                  <p>Please fill in this form to create an account.</p>
+                  <hr>
+
+                  <label id="name"><b>First Name</b></label>
+                  <input type="text" placeholder="Enter First Name" name="name" required>
+
+                  <label id="lastName"><b>Last Name</b></label>
+                  <input type="text" placeholder="Enter Last Name" name="lastName" required>
+              
+                  <label id="email"><b>Email</b></label>
+                  <input type="email" placeholder="Enter Email" name="email"
+                   required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+
+                  <label id="birthday"><b>Birthday</b></label>
+                  <input type="date" name="birthday" required>
+              
+                  <label id="sport"><b>Your favourite sport</b></label>
+                  <select name="sport" required>
+                        <option value="">Elejir deporte</option>
+                        <option value="baseball">Baseball</option>
+                        <option value="Boxing">Boxing</option>
+                        <option value="Football">Football</option>
+                        <option value="Golf">Golf</option>
+                        <option value="Hockey">Hockey</option>
+                  </select>
+              
+                  <label id="biograph"><b>Small Biography</b></label>
+                  <textarea name="biograph"  cols="30" rows="10" required>Write a small biography of you....</textarea>
+              
+                  <div class="clearfix">
+                    <button type="reset" class="cancelbtn">Clear Form</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                  </div>
+                </div>
+              </form>
+</body>
+</html>
