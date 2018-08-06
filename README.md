@@ -461,7 +461,7 @@ We will focus on some core elements:
 
 __1. Directives__
 
-// TODO
+At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) to attach a specified behavior to that DOM element, or even to transform the DOM element and its children.
 
 __2. Factory__
 
@@ -483,7 +483,7 @@ Also called digest loop, it's process of detecting model changes. The name comes
 Digest cycle goes through all the scope objects like Angular expressions or directives and checks which objects got affected due to the activity performed by the user.
 
 ### Reading
-- [Directives]()
+- [Directives](https://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-i-the-fundamentals)
 - [Factory](https://docs.angularjs.org/guide/providers#factory-recipe)
 - [Services](https://www.airpair.com/javascript/posts/services-in-angularjs-simplified-with-examples)
 - [Modules](https://www.journaldev.com/6125/angularjs-module-tutorial-example)
