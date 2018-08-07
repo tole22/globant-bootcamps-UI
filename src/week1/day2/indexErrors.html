@@ -15,16 +15,28 @@
             if(someArr[inx] !== void 0){ //void 0 === undefined
                 return someArr[inx];
             }else{
-                return `Index: ${inx} doesn't exist in the array`;
+               // return `Index: ${inx} doesn't exist in the array`;
+                throw new Error(`Index: ${inx} doesn't exist in the array`);
             }
         }
 
         for (let counter= 0; counter < someArr.length; counter++) {
             console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
-            //console.log(giveMe(4));
+            //console.log(giveMe(4));  >>> Error!!
         }
 
         console.log("The code continues");
+
+        console.info("With the method info(), let´s see  how works the method count(), that counts how many times its called");
+
+        for (let i = 0; i < 10; i++) {
+            console.count("Number of times");
+        }
+        var car1 = { name : "Audi", model : "A4" }
+        var car2 = { name : "Volvo", model : "XC90" }
+        var car3 = { name : "Ford", model : "Fusion" }
+        console.info("Table in console:");
+        console.table([car1, car2, car3]);
     })()
 </script>
 

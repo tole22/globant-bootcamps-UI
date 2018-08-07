@@ -1,10 +1,74 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
+<!DOCTYPE html>
+<html>
+<body>
+<div id="content">
+        <p id="text1">Lorem ipsum dolor sit amet.</p>
+</div>
+    
+<div id="content2">
+        <p id="text2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat, amet?</p>
+</div>
+<div id="button_txt">
+    Number:<input id="cant" type="text" />
+    <button onclick="askQuantity()">Enter</button>
+</div>
+
 <script>
     (function(){
         "use strict";
+        
+        //add 2 DOM elements
+        var p_txt = document.createElement("p");
+        var node = document.createTextNode("This is new.");
+        p_txt.appendChild(node);
+
+        var div = document.getElementById("content");
+        div.appendChild(p_txt);
+
+        var p_txt_new = document.createElement("p");
+        var node2 = document.createTextNode("This is the div content");
+        p_txt_new.appendChild(node2);
+        div.appendChild(p_txt_new);
+
+        let paragraphs = div.getElementsByTagName("p");
+        console.log(paragraphs.length);
+        div.insertBefore(paragraphs[2], paragraphs[0]);
+
+        //Remove
+        var parent = document.getElementById("content2");
+        var child = document.getElementById("text2");
+        parent.removeChild(child);
+
+        var myNodelist = document.querySelectorAll("p");
+        document.getElementById("content2").innerHTML =
+            "This document contains " + myNodelist.length + " paragraphs.";
+
+        
+
     })()
+
+   function askQuantity(){
+       var num = document.getElementById("cant").value;
+       
+       var txt_new = document.createElement("p");
+       let txt = "";
+       if(num == 0 || isNaN(num)) {
+        txt = txt + "Insert a number > 0, and only a number";
+       }else{
+           txt = txt + "New paragraph element added!! The number is : "+ num;
+       }
+
+        var node_txt = document.createTextNode(txt);
+        txt_new.appendChild(node_txt);
+        var div_txt = document.getElementById("button_txt");
+        div_txt.appendChild(txt_new);
+   }
+    
 </script>
+</body>
+</html>
 
 <!-- Now it's your turn to make some changes
     - Add at least 2 DOM elements, via code, DOH
