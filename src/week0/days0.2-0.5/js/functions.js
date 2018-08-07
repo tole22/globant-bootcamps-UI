@@ -74,7 +74,7 @@ const hummus = function(factor) {
   console.log(powerRec(2, 51));
   // 2251799813685248
 
-  //Excercises
+  //----------------------------------Excercises-----------------------------------------
 
   //Minimum
 

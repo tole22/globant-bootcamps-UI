@@ -70,7 +70,7 @@ for (let current = 20; ; current = current + 1) {
   }
 
 
-//Exercises
+//------------------------------------------Exercises------------------------------------------
 //Looping a triangle
 console.log('Looping a triangle');
 let text = "";
