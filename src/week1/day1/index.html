@@ -1,16 +1,72 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
 <script>
-    var Animal = (function(type) {
+    var Animal = (function(type, color, numLegs) {
         this.type = type;
+        this.color = color;
+        this.numLegs = numLegs;
     });
 
+    //Getters and Setters
+    Animal.prototype.getType = function (){
+        return this.type;
+    }
+    Animal.prototype.setType = function (newType){
+        this.type = newType;
+    }
+    Animal.prototype.getColor = function (){
+        return this.color;
+    }
+    Animal.prototype.setColor = function (newcolor){
+        this.color = newcolor;
+    }
+    Animal.prototype.getNumLegs = function (){
+        return this.numLegs;
+    }
+    Animal.prototype.setNumLegs = function (newNumLegs){
+        this.numLegs = newNumLegs;
+    }
+
+    //Methods
     Animal.prototype.talk = function() {
         console.log(`Hi, I'm an Animal, but also a ${this.type}`);
     };
-
-    let rabbit = new Animal("Rabbit");
+    Animal.prototype.descripton = function(){
+        console.log(`This animal is a: ${this.getType()}, and it's: ${this.getColor()} and has ${this.getNumLegs()} legs `);
+    }
+    console.log("----------------------------------------------");
+    console.log("Clases con prototype ES5");
+    console.log("----------------------------------------------");
+    let rabbit = new Animal("Rabbit", "White", 4);
     rabbit.talk();
+    console.log(rabbit.getType());
+    rabbit.setType("Cangaroo");
+    rabbit.talk();
+    console.log(rabbit.getColor());
+    console.log(rabbit.getNumLegs());
+    rabbit.descripton();
+
+
+    //New class that inherits fom Animal
+
+    function Carnivorous(type, color, numLegs, numTeeth) {
+        Animal.call(this, type, color, numLegs);
+        this.numTeeth = numTeeth;
+    }
+    Carnivorous.prototype = Object.create(Animal.prototype);
+    Carnivorous.prototype.constructor = Carnivorous;
+
+    //Override one Animal's method
+
+    Carnivorous.prototype.talk = function() {
+        console.log(`Hi, I'm a Carnivorous Animal, my type is: ${this.getType()} and i have ${this.numTeeth} teeth in my mouth `);
+    }
+
+    let lion = new Carnivorous("Lion", "Green", "4", "45");
+    lion.descripton();
+    lion.talk();
+   
+
 </script>
 
 <!-- Now it's your turn to make some changes

@@ -1,0 +1,87 @@
+<!-- Take this file and open it on a browser, then open the console
+    inside developer tools -->
+<script>
+
+    console.log("----------------------------------------------");
+    console.log("Clases ES6");
+    console.log("----------------------------------------------");
+
+   class Animal {
+       constructor(type, color, numLegs) {
+           this.type = type;
+           this.color = color;
+           this.numLegs = numLegs;
+       }
+
+       //getters and setter
+       getType(){
+           return this.type;
+       }
+       setType(newType){
+           this.type = newType;
+       }
+       getColor(){
+           return this.color;
+       }
+       setColor(newColor){
+           this.color = newColor;
+       }
+       getNumLegs(){
+           return this.numLegs;
+       }
+       setNumLegs(newNumLegs){
+           this.numLegs = newNumLegs;
+       }
+
+       //Methods
+
+       talk() {
+        console.log(`Hi, I'm an Animal, but also a ${this.getType()} from ES6 classes`);
+        }
+       descripton(){
+            console.log(`This animal is a: ${this.getType()}, and it's: ${this.getColor()} and has ${this.getNumLegs()} legs `);
+        }
+   }
+
+   class Carnivorous extends Animal {
+        constructor(type, color, numLegs, numTeeth) {
+            super(type, color, numLegs);
+            this.numTeeth = numTeeth;
+        }
+        getNumTeeth(){
+            return this.numTeeth;
+        }
+        setNumTeeth(newNumTeeth){
+            this.numTeeth = newNumTeeth;
+        }
+
+        talk() {
+        console.log(`Hi, I'm a Carnivorous Animal, my type is: ${this.getType()} and i have ${this.numTeeth} teeth in my mouth `);
+    }
+   }
+
+
+
+   let rabbit = new Animal("Rabbit", "White", 4);
+   rabbit.talk();
+   rabbit.descripton();
+
+   let lion = new Carnivorous("Lion", "Green", "4", "45");
+    lion.descripton();
+    lion.talk();
+
+</script>
+
+<!-- Now it's your turn to make some changes
+    - Refactor the previous code to use getters and settters
+    - Add at least 2 more properties
+    - Add at least 2 more methods
+    - Create a new class that inherits from Animal
+    - Override one of the methods you previously defined
+
+    ****************************************************
+    ****               BONUS POINTS                 ****
+    ****      MAKE A 2nd VERSION USING ES6 CLASSES  ****
+    ****                                            ****
+    ****************************************************
+-->
