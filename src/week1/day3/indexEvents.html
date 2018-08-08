@@ -1,8 +1,57 @@
 <!-- Take this file and open it on a browser, then open the console
 inside developer tools -->
+
+<h2>Show button clicks in the document</h2>
+<button id="btn1">Click Button 1</button>
+<h3>Number of clicks in the button 1: >>>>>> 
+    <span id="txt_1">0</span>
+</h3>
+<p>-------------------------------------------------------------------------------------------------------</p>
+<h2>Show button actions in the console log</h2>
+<button id="btn2">Click Button 2</button>
+<h3>Differents actions with the button 2: >>>>>> Press F12
+</h3>
+<p>-------------------------------------------------------------------------------------------------------</p>
+<h2>Show pointer's position</h2>
+<h3>the current position is: >>>>>> 
+        X:<span id="txt_2">0</span>
+        Y:<span id="txt_3">0</span>
+    </h3>
+
+
 <script>
     (function(){
         "use strict";
+        
+        //Btn 1
+        let button1 = document.getElementById("btn1");
+        let count = 0;
+        let element_txt_1 = document.getElementById("txt_1");
+        
+        button1.addEventListener("click", () => {
+            count++;
+            element_txt_1.innerHTML = count;
+        });
+        //BTN 2
+        let button2 = document.getElementById("btn2");
+        
+        button2.addEventListener("mouseover", overFunction);
+        button2.addEventListener("click", clickFunction);
+        button2.addEventListener("mouseout", outFunction);
+
+        function overFunction(){ console.log("Moused over!"); }
+        function clickFunction(){ console.log("Clicked!"); }
+        function outFunction(){ console.log("Moused Out!"); }
+
+
+        //Mouse position
+        let element_txt_2 = document.getElementById("txt_2");
+        let element_txt_3 = document.getElementById("txt_3");
+        onmousemove = function(e){
+            element_txt_2.innerHTML = e.clientX;
+            element_txt_3.innerHTML =  e.clientY;
+        }
+
     })()
 </script>
 
