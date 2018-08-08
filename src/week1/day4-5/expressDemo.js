@@ -1,10 +1,31 @@
-const express = ;
+const express = require('express');
 const app = express();
 const port = 3000;
 
+var fs = require("fs");
+
 app.get('/', (req, res) => {
     res.send('Hello There!');
-})
+});
+
+app.get('/random', (req, res) => {
+    let num = Math.floor((Math.random() * 100) + 1);
+    res.send('The random numer is:'+ num);
+  });
+
+app.get('/readJson', (req, res) => {
+    var contents = fs.readFileSync("jscontent.json");
+    
+    var jsonContent = JSON.parse(contents);
+
+    res.send('The Json file content is:>>>> User Name: '+jsonContent.username+ '; Email: '+ jsonContent.email+ '; Password: '+ jsonContent.password);
+  });
+
+app.get('*', function(req, res) {
+    res.send('Page not found!!!');
+  });
+
+
 
 app.listen(port, () => {
     console.log('Example server listening on port ' + port);
