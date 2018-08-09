@@ -1,13 +1,17 @@
 
-var app = angular.module("mainApp",[]);
 
-app.controller("CRUDController", function($scope){
+var app = angular.module("mainApp",['LocalStorageModule']);
+
+app.controller("CRUDController", function($scope, localStorageService){
 
     $scope.EmpList= []; //empty array of employees
 
     var employee;// selected employee for delete it
 
     var count_id = 1;// init IDs employeess
+
+    //LOCAL STORAGE
+    
 
     $scope.AddData = function(){
         var emp = {
@@ -62,5 +66,11 @@ app.controller("CRUDController", function($scope){
     $scope.ClearModel = function(){
        ClearModel();
     };
-
+    localStorageService.set('property', 'oldValue');
+    $scope.unbind = localStorageService.bind($scope, 'property');
+    console.log(localStorageService.get('property'));
+    console.log('hola');
 });
+
+
+  
