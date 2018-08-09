@@ -1,0 +1,20 @@
+
+body {
+  padding: 0;
+}
+
+.panel-heading {
+  height: 55px;
+}
+
+.panel-heading button {
+  background: #FFF;
+  color: blue;
+}
+
+.form-group .alert {
+  margin-top: 10px;
+}
+
+
+
