@@ -2,7 +2,9 @@
 
 var app = angular.module("mainApp",['LocalStorageModule']);
 
-app.controller("CRUDController", function($scope, localStorageService){
+
+//MAIN APP CONTROLLER
+app.controller("CRUDController", function($scope){
 
     $scope.EmpList= []; //empty array of employees
 
@@ -66,11 +68,43 @@ app.controller("CRUDController", function($scope, localStorageService){
     $scope.ClearModel = function(){
        ClearModel();
     };
-    localStorageService.set('property', 'oldValue');
-    $scope.unbind = localStorageService.bind($scope, 'property');
-    console.log(localStorageService.get('property'));
-    console.log('hola');
+    
 });
 
-
+//LOCAL STORAGE CONTROLLER
   
+app.controller("LSController", function($scope, localStorageService){
+
+   
+  if(!localStorageService.get('bodyClass')){
+        localStorageService.set('bodyClass', 'body-light');
+        $scope.classBody = "body-light";
+        $scope.onOff = "OFF";
+  }else{
+    $scope.classBody = localStorageService.get('bodyClass');
+    switch ($scope.classBody) {
+        case "body-light":
+            $scope.onOff = "OFF";
+            break;
+        case "body-dark":
+            $scope.onOff = "ON";
+            break;
+    };
+  }
+
+    $scope.toggleClass = function(){
+        switch ($scope.classBody) {
+            case "body-light":
+                $scope.classBody = "body-dark";
+                $scope.onOff = "ON";
+                localStorageService.set('bodyClass', 'body-dark');
+                break;
+            case "body-dark":
+                $scope.classBody = "body-light";
+                $scope.onOff = "OFF";
+                localStorageService.set('bodyClass', 'body-light');
+                break;
+        };
+    };
+});
+

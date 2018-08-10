@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mainApp">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +16,13 @@
 
   <title>Angular JS CRUD</title>
 </head>
-<body>
+<body ng-class="classBody" ng-controller="LSController">
+
+  <div >
+      <button type="button" ng-click="toggleClass()">Turn {{onOff}} the ligth!</button>
+  </div>
   
-<div ng-app="mainApp" ng-controller="CRUDController">
+<div  ng-controller="CRUDController">
   <div class="container">
     <h1>Angular JS CRUD</h1>
     	
@@ -183,9 +187,7 @@
           </div>
         </div>
   </div>
---------------------------------
-
-      <p>{{property}}</p>
+  
 
 </body>
 </html>
