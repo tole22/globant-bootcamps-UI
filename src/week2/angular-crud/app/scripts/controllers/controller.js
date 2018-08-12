@@ -1,19 +1,20 @@
 
+"use strict";
 
-var app = angular.module("mainApp",['LocalStorageModule']);
+var app = angular.module("mainApp",['LocalStorageModule','moduleServ']);
 
 
 //MAIN APP CONTROLLER
-app.controller("CRUDController", function($scope){
+app.controller("CRUDController", function($scope, dataService){
 
-    $scope.EmpList= []; //empty array of employees
+
+    $scope.EmpList= dataService.serviceData(); //empty array of employees
 
     var employee;// selected employee for delete it
 
-    var count_id = 1;// init IDs employeess
+    var count_id = $scope.EmpList.length+1;// init IDs employeess
 
     //LOCAL STORAGE
-    
 
     $scope.AddData = function(){
         var emp = {
@@ -31,7 +32,7 @@ app.controller("CRUDController", function($scope){
 
     $scope.BindEmptoDelete = function(emp){
         employee = emp;
-    }
+    };
 
     //Delete
     $scope.DeleteData = function(){
@@ -46,7 +47,7 @@ app.controller("CRUDController", function($scope){
         $scope.Id = emp.Id;
         $scope.Name = emp.Name;
         $scope.Salary = emp.Salary;
-    }
+    };
 
     //Update
     $scope.UpdateData = function(){
@@ -63,7 +64,7 @@ app.controller("CRUDController", function($scope){
         $scope.Id = 0;
         $scope.Name = '';
         $scope.Salary = 0;
-    };
+    }
 
     $scope.ClearModel = function(){
        ClearModel();
@@ -89,7 +90,7 @@ app.controller("LSController", function($scope, localStorageService){
         case "body-dark":
             $scope.onOff = "ON";
             break;
-    };
+    }
   }
 
     $scope.toggleClass = function(){
@@ -104,7 +105,7 @@ app.controller("LSController", function($scope, localStorageService){
                 $scope.onOff = "OFF";
                 localStorageService.set('bodyClass', 'body-light');
                 break;
-        };
+        }
     };
 });
 
