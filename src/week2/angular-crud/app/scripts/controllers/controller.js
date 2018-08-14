@@ -22,8 +22,9 @@ app.controller("CRUDController", function($scope, dataService){
             Name: $scope.Name,
             Salary: $scope.Salary
         };
-
-        $scope.EmpList.push(emp);
+        dataService.addEmp(emp);//service add
+        $scope.EmpList= dataService.serviceData();//service giveme back the list
+       
         count_id++;
         ClearModel(); // reset all values to default
     };
@@ -39,7 +40,8 @@ app.controller("CRUDController", function($scope, dataService){
 
             var index = $scope.EmpList.indexOf(employee);
 
-            $scope.EmpList.splice(index,1);
+            dataService.delEmp(index);//call delete service
+            $scope.EmpList= dataService.serviceData();//service giveme back the list
     };
 
     //Select employee
@@ -51,12 +53,16 @@ app.controller("CRUDController", function($scope, dataService){
 
     //Update
     $scope.UpdateData = function(){
-        $.grep($scope.EmpList, function(e){
-            if(e.Id == $scope.Id){
-                e.Name=$scope.Name;
-                e.Salary=$scope.Salary;
-            }
-        });
+
+        let e = {
+            Id: $scope.Id,
+            Name: $scope.Name,
+            Salary: $scope.Salary
+        };
+        dataService.updateEmp(e);//service update
+        $scope.EmpList= dataService.serviceData();//service giveme back the list
+
+        
         ClearModel(); // reset all values to default
     };
 
